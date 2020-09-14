@@ -8,32 +8,29 @@
 
 import SwiftUI
 
-struct FirstView: View {
-    
+struct TabView: View {
+    let page: String
+    let text: String
     var body: some View {
         NavigationView {
             ZStack {
-                Color.white.edgesIgnoringSafeArea(.all)
-                Text("Notice the NavigationBar is not laid out properly. Tap the Second Tab then come back to the First. It will be fixed, Why?🤔")
-                    .padding([.leading, .trailing], 32)
-                    .multilineTextAlignment(.center)
-                    .navigationBarTitle("", displayMode: .inline)
-                    .navigationBarItems(leading: Text("First").font(Font.system(size: 24, weight: .bold)))
+                Color.red.edgesIgnoringSafeArea(.all)
+                Text(text)
             }.navigationBarTitle("", displayMode: .inline)
-            .navigationBarItems(leading: Text("First").font(Font.system(size: 24, weight: .bold)))
+            .navigationBarItems(leading: Text(page).font(Font.system(size: 24, weight: .bold)))
         }
     }
 }
-
-struct SecondView: View {
-    
-    var body: some View {
-        NavigationView {
-            Text("Notice that the NavigationBar on this view is properly laid out. Go back to the First View and it will be fixed.")
-                .padding([.leading, .trailing], 32)
-                .multilineTextAlignment(.center)
-                .navigationBarTitle("", displayMode: .inline)
-                .navigationBarItems(leading: Text("Second").font(Font.system(size: 24, weight: .bold)))
-        }
-    }
-}
+//
+//struct SecondView: View {
+//
+//    var body: some View {
+//        NavigationView {
+//            ZStack {
+//                Color.blue.edgesIgnoringSafeArea(.all)
+//                Text("Swipe to Previous")
+//            }.navigationBarTitle("", displayMode: .inline)
+//            .navigationBarItems(leading: Text("Second").font(Font.system(size: 24, weight: .bold)))
+//        }
+//    }
+//}

@@ -11,6 +11,60 @@ import Tabman
 import Pageboy
 import SwiftUI
 
+final class MainViewController: UIPageViewController, UIPageViewControllerDataSource {
+    var vcs: [UIViewController] = []
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let vc1 = UIViewController()
+        vcs.append(vc1)
+        dataSource = self
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // Uncomment to delay loading Child Views
+            self.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
+//        }
+    }
+}
+
+//
+//final class MainViewController: UIPageViewController, UIPageViewControllerDataSource {
+//
+//    var vcs: [UIViewController] = []
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        let redVC = UIHostingController(rootView: TabView(page: "First", color: .red))
+//        let blueVC = UIHostingController(rootView: TabView(page: "Second", color: .blue))
+//        vcs.append(redVC)
+//        vcs.append(blueVC)
+//        dataSource = self
+//
+////        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // Uncomment to delay loading Child Views
+//            self.setViewControllers([redVC], direction: .forward, animated: true, completion: nil)
+////        }
+//    }
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+//        vcs.first
+//    }
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+//        vcs.last
+//    }
+//
+//    struct TabView: View {
+//        let page: String
+//        let color: UIColor
+//        var body: some View {
+//            NavigationView {
+//                ZStack {
+//                    Color(color).edgesIgnoringSafeArea(.all)
+//                    Text("Swipe Page")
+//                }.navigationBarTitle("", displayMode: .inline)
+//                .navigationBarItems(leading: Text(page).font(Font.system(size: 24, weight: .bold)))
+//            }
+//        }
+//    }
+//}
+
 final class PageViewController: TabmanViewController {
     
     var viewControllers: [UIViewController] = []
@@ -28,11 +82,7 @@ final class PageViewController: TabmanViewController {
             self.dataSource = self // Reloads dataSource when set
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+
     func loadViewControllers() {
         viewControllers.append(FirstViewController())
         viewControllers.append(SecondViewController())
@@ -60,7 +110,7 @@ final class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        add(UIHostingController(rootView: FirstView()))
+//        add(UIHostingController(rootView: FirstView()))
     }
 }
 
@@ -70,6 +120,6 @@ final class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        add(UIHostingController(rootView: SecondView()))
+//        add(UIHostingController(rootView: SecondView()))
     }
 }
