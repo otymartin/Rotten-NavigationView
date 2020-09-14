@@ -17,6 +17,7 @@ struct FirstView: View {
                 Text("Notice the NavigationBar is not laid out properly. Tap the Second Tab then come back to the First. It will be fixed, Why?🤔")
                     .padding([.leading, .trailing], 32)
                     .multilineTextAlignment(.center)
+                    .navigationBarTitle("", displayMode: .inline)
                     .navigationBarItems(leading: Text("First").font(Font.system(size: 24, weight: .bold)))
             }.navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: Text("First").font(Font.system(size: 24, weight: .bold)))
