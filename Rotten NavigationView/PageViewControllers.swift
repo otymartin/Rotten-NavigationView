@@ -18,9 +18,19 @@ final class PageViewController: TabmanViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         isScrollEnabled = false
-        loadViewControllers()
-        addTabBar()
-        dataSource = self // Reloads dataSource when set
+        self.addTabBar()
+
+        //MARK: - BAND AID FIX
+        // The parent view controller has not been fully presented yet, before the child view controller is presented.
+        // Using Delay to load datasource only after Parent VC has been fully presented.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.loadViewControllers()
+            self.dataSource = self // Reloads dataSource when set
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func loadViewControllers() {
