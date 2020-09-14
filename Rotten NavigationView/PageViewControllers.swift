@@ -11,7 +11,7 @@ import Tabman
 import Pageboy
 import SwiftUI
 
-final class MainViewController: TabmanViewController {
+final class PageViewController: TabmanViewController {
     
     var viewControllers: [UIViewController] = []
     
@@ -29,7 +29,7 @@ final class MainViewController: TabmanViewController {
     }
 }
 
-extension MainViewController: PageboyViewControllerDataSource {
+extension PageViewController: PageboyViewControllerDataSource {
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         viewControllers.count

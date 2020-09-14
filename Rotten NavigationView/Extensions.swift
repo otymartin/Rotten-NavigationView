@@ -12,7 +12,7 @@ import Pageboy
 import SwiftUI
 
 
-extension MainViewController {
+extension PageViewController {
     
     func addTabBar() {
         let bar = TMBar.TabBar()
@@ -23,7 +23,7 @@ extension MainViewController {
 }
 
 //MARK: - TMBARDATASOURCE
-extension MainViewController: TMBarDataSource {
+extension PageViewController: TMBarDataSource {
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         let titles = ["First", "Second"]
@@ -35,7 +35,7 @@ extension MainViewController: TMBarDataSource {
 
 // MARK: - TABBAR
 
-extension MainViewController {
+extension PageViewController {
     
     func customizeButtons(for bar: TMBar.TabBar) {
         bar.buttons.customize { (button) in
