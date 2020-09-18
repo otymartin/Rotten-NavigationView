@@ -77,6 +77,7 @@ final class PageViewController: TabmanViewController {
         //MARK: - BAND AID FIX
         // The parent view controller has not been fully presented yet, before the child view controller is presented.
         // Using Delay to load datasource only after Parent VC has been fully presented.
+        // Alternatively, run this code in ViewDidAppear
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.loadViewControllers()
             self.dataSource = self // Reloads dataSource when set
